@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"  >
+
+  <data>
+
+  </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="342dp"
+            android:layout_height="181dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.565"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.703" />
+
+        <TextView
+            android:id="@+id/Fdes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Find Your  "
+            android:textColor="@color/black"
+            android:textSize="34dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.979"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.055" />
+
+        <TextView
+            android:id="@+id/Sdes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Favorite Food  "
+            android:textColor="@color/black"
+            android:textSize="34dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/icephoto"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@id/Fdes"
+            app:layout_constraintTop_toBottomOf="@+id/Fdes"
+            app:layout_constraintVertical_bias="0.184" />
+
+        <ImageButton
+            android:id="@+id/icephoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Sdes"
+            app:layout_constraintBottom_toTopOf="@+id/recycler"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Fdes"
+            app:layout_constraintVertical_bias="0.612"
+            app:srcCompat="@drawable/icecream"
+            android:contentDescription="t"
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
+            android:background="@color/white"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

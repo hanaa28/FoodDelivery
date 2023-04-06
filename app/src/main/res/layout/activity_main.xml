@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.avtivities.MainActivity"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/secongphoto"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp"
+        app:srcCompat="@drawable/second"/>
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/secongphoto"
+        android:text="Find your Comfort "
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:id="@+id/des1"/>
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/des1"
+        android:text="       Food here "
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:id="@+id/des2"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/des2"
+        android:text=" Here you can find a chef or dish for every    "
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:textSize="18dp"
+        android:textStyle="normal"
+        android:id="@+id/des3"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/des3"
+        android:text="  teste and color.Enjoy!  "
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:textSize="18dp"
+        android:textStyle="normal"
+        android:id="@+id/des4"/>
+
+    <Button
+
+        android:id="@+id/next"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/des4"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/whitegreen"
+        android:contentDescription="@string/app_name"
+
+        android:text="Next" />
+
+
+</RelativeLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.avtivities.photoActivity"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@color/white">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/viewImage"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp">
+
+            <ImageButton
+                android:id="@+id/takephoto"
+                android:layout_width="140dp"
+                android:layout_height="125dp"
+                app:srcCompat="@drawable/camera"
+                android:contentDescription="camera"
+                android:layout_marginTop="4dp"/>
+
+            <ImageButton
+                android:id="@+id/slectphoto"
+                android:layout_width="150dp"
+                android:layout_height="135dp"
+                app:srcCompat="@drawable/gallery"
+                android:layout_marginLeft="15dp"
+
+                android:contentDescription="select" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Next"
+            android:backgroundTint="@color/whitegreen"
+            android:layout_marginTop="70dp"
+            />
+        <FrameLayout
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            />
+
+    </LinearLayout>
+</layout>
