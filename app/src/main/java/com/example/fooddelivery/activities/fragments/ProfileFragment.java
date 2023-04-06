@@ -61,7 +61,7 @@ public class ProfileFragment extends Fragment {
         TextView phone=v.findViewById(R.id.phone);
         name.setText(namePref);
         phone.setText(sharedPrefs.get(Constants.KEY_PHONE));
-        View image=v.findViewById(R.id.viewImage);
+
 //        image.put
         return v;
 

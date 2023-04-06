@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:title="notification"
-        android:id="@+id/noti"
-        android:iconTint="@color/whitegreen"
-        app:showAsAction="always"
-        android:icon="@drawable/baseline_notifications_active_24"/>
 
+    <item
+        android:title="Home"
+        android:id="@+id/home"
+        android:icon="@drawable/baseline_home_24"
+        android:iconTint="@color/whitegreen"
+        app:showAsAction="always"/>
 
     <item
         android:title="card"
@@ -23,10 +23,11 @@
         android:icon="@drawable/baseline_person_pin_24"
         android:iconTint="@color/whitegreen"
         app:showAsAction="always"/>
-    <item
-        android:title="Home"
-        android:id="@+id/home"
-        android:icon="@drawable/baseline_home_24"
-        android:iconTint="@color/whitegreen"
-        app:showAsAction="always"/>
+<item
+    android:title="notification"
+    android:id="@+id/noti"
+    android:iconTint="@color/whitegreen"
+    app:showAsAction="always"
+    android:icon="@drawable/baseline_notifications_active_24"/>
+
 </menu>
