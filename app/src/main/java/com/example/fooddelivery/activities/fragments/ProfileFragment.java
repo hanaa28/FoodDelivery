@@ -3,7 +3,6 @@ package com.example.fooddelivery.activities.fragments;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -14,8 +13,6 @@ import android.widget.TextView;
 import com.example.fooddelivery.R;
 import com.example.fooddelivery.activities.Constants;
 import com.example.fooddelivery.activities.SharedPrefs;
-import com.example.fooddelivery.activities.View.FoodViewModel;
-import com.example.fooddelivery.activities.config;
 import com.example.fooddelivery.databinding.FragmentProfileBinding;
 
 import java.util.HashMap;
@@ -64,6 +61,8 @@ public class ProfileFragment extends Fragment {
         TextView phone=v.findViewById(R.id.phone);
         name.setText(namePref);
         phone.setText(sharedPrefs.get(Constants.KEY_PHONE));
+        View image=v.findViewById(R.id.viewImage);
+//        image.put
         return v;
 
     }

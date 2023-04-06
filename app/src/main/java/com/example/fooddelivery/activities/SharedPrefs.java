@@ -3,6 +3,7 @@ package com.example.fooddelivery.activities;
 
     import android.content.Context;
 import android.content.SharedPreferences;
+    import android.graphics.drawable.Drawable;
 
     import androidx.annotation.NonNull;
 
@@ -30,6 +31,7 @@ public class SharedPrefs {
         userInfo.put(Constants.KEY_FIRSTNAME, pref.getString(Constants.KEY_FIRSTNAME, null));
         userInfo.put(Constants.KEY_LASTNAME, pref.getString(Constants.KEY_LASTNAME, null));
         userInfo.put(Constants.KEY_PHONE, pref.getString(Constants.KEY_PHONE, null));
+
         return userInfo;
 }
 }
