@@ -8,74 +8,39 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_margin="10dp">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/res_shape">
 
         <ImageButton
             android:id="@+id/resphoto"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:contentDescription="photo"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.106"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.172"
             app:srcCompat="@drawable/fres"
             android:background="@color/white"
-            android:gravity="center"
+
+
             />
 
         <TextView
             android:id="@+id/nameres"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:text=" Good Food  "
+            android:text="Good Food"
             android:textColor="@color/black"
             android:textSize="24dp"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/snameres"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/resphoto"
-            app:layout_constraintVertical_bias="0.745"
-            android:gravity="center"/>
-
-        <ImageButton
-            android:id="@+id/res2pgoto"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@color/white"
-            android:contentDescription="food"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.751"
-            app:layout_constraintStart_toEndOf="@+id/resphoto"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.172"
-            app:srcCompat="@drawable/sres"
-            android:gravity="center"/>
-
-        <TextView
-            android:id="@+id/snameres"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="124dp"
-            android:layout_marginTop="12dp"
-            android:text=" Healthy Food "
-            android:textColor="@color/black"
-            android:textSize="24dp"
-            android:textStyle="bold|italic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/nameres"
-            app:layout_constraintTop_toBottomOf="@+id/res2pgoto"
-            app:layout_constraintVertical_bias="0.666"
-            android:gravity="center"/>
+           app:layout_constraintEnd_toEndOf="parent"
+            android:textAlignment="center"
+           />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,13 +1,19 @@
 package com.example.fooddelivery.activities.fragments;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.fooddelivery.R;
@@ -17,13 +23,16 @@ import com.example.fooddelivery.databinding.FragmentProfileBinding;
 
 import java.util.HashMap;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class ProfileFragment extends Fragment {
 
     FragmentProfileBinding binding;
     private String namee;
-    private HashMap<String, String> sharedPrefs;
+    private String photo;
      static final String Name="name";
+     private SharedPrefs sharedPrefs;
 
     public ProfileFragment() {
 
@@ -43,8 +52,7 @@ public class ProfileFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle= getArguments();
-        sharedPrefs = new SharedPrefs(requireActivity()).getSessionInfo();
-        System.out.println(sharedPrefs.get(Constants.KEY_FIRSTNAME));
+
         if (bundle !=null){
              namee=bundle.getString(Name);
         }
@@ -53,14 +61,19 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false);
+        View v = binding.getRoot();
+//        ImageView imageview = v.findViewById(R.id.viewImage1);
+//        CircleImageView imageView1 = v.findViewById(R.id.viewImage);
+        sharedPrefs = new SharedPrefs(requireActivity());
+        photo = sharedPrefs.getPhoto().get(Constants.KEY_PHOTO);
+        System.out.println("************************");
+        System.out.println(photo);
+        byte[] b = Base64.decode(photo, Base64.DEFAULT);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(b, 0, b.length);
+        binding.viewImage.setImageDrawable(new BitmapDrawable(getResources(), bitmap));
+        binding.viewImage1.setImageBitmap(bitmap);
 
-        View v = inflater.inflate(R.layout.fragment_profile, container, false);
-        sharedPrefs = new SharedPrefs(requireActivity()).getSessionInfo();
-        String namePref = sharedPrefs.get(Constants.KEY_FIRSTNAME) + " " + sharedPrefs.get(Constants.KEY_LASTNAME);
-        TextView name=v.findViewById(R.id.name);
-        TextView phone=v.findViewById(R.id.phone);
-        name.setText(namePref);
-        phone.setText(sharedPrefs.get(Constants.KEY_PHONE));
 
 //        image.put
         return v;

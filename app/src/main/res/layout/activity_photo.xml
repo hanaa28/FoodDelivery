@@ -13,7 +13,8 @@
         tools:context=".activities.avtivities.photoActivity"
         android:orientation="vertical"
         android:padding="10dp"
-        android:background="@color/white">
+        android:background="@color/white"
+        tools:ignore="MissingClass">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/viewImage"

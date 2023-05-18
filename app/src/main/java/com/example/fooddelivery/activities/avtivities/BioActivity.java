@@ -2,20 +2,14 @@ package com.example.fooddelivery.activities.avtivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.View;
 
 import com.example.fooddelivery.R;
 import com.example.fooddelivery.activities.SharedPrefs;
-import com.example.fooddelivery.activities.View.FoodViewModel;
-import com.example.fooddelivery.activities.config;
-import com.example.fooddelivery.activities.fragments.ProfileFragment;
 import com.example.fooddelivery.databinding.ActivityBioBinding;
 
 public class BioActivity extends AppCompatActivity {
