@@ -3,6 +3,12 @@ package com.example.fooddelivery.activities.models;
 import com.google.gson.annotations.SerializedName;
 
 public class Food {
+	public Food(String pic, String name,String description,String price) {
+		this.price = price;
+		this.name = name;
+		this.pic = pic;
+		this.description=description;
+	}
 
 	@SerializedName("updated_at")
 	private String updatedAt;
@@ -30,6 +36,13 @@ public class Food {
 
 	@SerializedName("pic")
 	private String pic;
+	private int logo;
+	public Food(int logo, String name, String description, int i) {
+		this.price = price;
+		this.name = name;
+		this.logo = logo;
+		this.description=description;
+	}
 
 	public String getUpdatedAt(){
 		return updatedAt;

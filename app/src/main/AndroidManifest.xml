@@ -25,6 +25,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.avtivities.splashScreen"
+            android:exported="false" />
+        <activity
             android:name=".activities.avtivities.MenuActivity"
             android:exported="false" />
         <activity
@@ -55,7 +58,7 @@
             android:name=".activities.avtivities.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.avtivities.splashScreen"
+            android:name=".activities.avtivities.orderActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
