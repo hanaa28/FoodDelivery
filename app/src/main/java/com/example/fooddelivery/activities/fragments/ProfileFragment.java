@@ -69,10 +69,11 @@ public class ProfileFragment extends Fragment {
         photo = sharedPrefs.getPhoto().get(Constants.KEY_PHOTO);
         System.out.println("************************");
         System.out.println(photo);
-        byte[] b = Base64.decode(photo, Base64.DEFAULT);
-        Bitmap bitmap = BitmapFactory.decodeByteArray(b, 0, b.length);
-        binding.viewImage.setImageDrawable(new BitmapDrawable(getResources(), bitmap));
-        binding.viewImage1.setImageBitmap(bitmap);
+        if (photo != null) {
+            byte[] b = Base64.decode(photo, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(b, 0, b.length);
+            binding.viewImage.setImageDrawable(new BitmapDrawable(getResources(), bitmap));
+        }
 
 
 //        image.put

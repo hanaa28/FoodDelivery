@@ -9,6 +9,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Path;
 
 public interface RestaurantInterface {
     @GET("restaurent")
@@ -16,4 +17,7 @@ public interface RestaurantInterface {
 
     @GET("food")
     Call<FoodResponse> getFood(@Header("Authorization") String token);
+
+    @GET("food/{id}")
+    Call<FoodResponse> getOneFood(@Header("Authorization") String token, @Path("id") String id);
 }

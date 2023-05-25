@@ -51,18 +51,18 @@
             android:hint="What do you want to order?"
             android:textColorHint="@color/orange"
             android:textSize="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.211"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Sdes" />
+            app:layout_constraintTop_toBottomOf="@+id/Sdes"
+            app:layout_constraintEnd_toStartOf="@+id/btn_search"/>
 
         <ImageButton
+            android:id="@+id/btn_search"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginLeft="250dp"
-            app:layout_constraintStart_toStartOf="@id/search"
+            app:layout_constraintStart_toEndOf="@id/search"
             app:layout_constraintTop_toBottomOf="@+id/Sdes"
             android:background="@drawable/shape2"
             android:src="@drawable/baseline_manage_search_24"/>

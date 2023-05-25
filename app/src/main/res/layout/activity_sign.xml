@@ -8,20 +8,23 @@
 
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".activities.avtivities.SignActivity"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
         android:background="@color/white">
 
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="395dp"
-            app:srcCompat="@drawable/signup" />
+            android:layout_height="300dp"
+            app:srcCompat="@drawable/signup"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/sign_image"
+            android:background="@drawable/res_shape"/>
 
         <EditText
             android:id="@+id/name"
@@ -31,9 +34,12 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:inputType="text"
-            android:layout_marginTop="10dp"
             android:textColorHint="@color/black"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_image"
+            android:background="@drawable/res_shape"/>
 
         <EditText
             android:id="@+id/email"
@@ -45,10 +51,18 @@
             android:layout_marginRight="15dp"
             android:inputType="textEmailAddress"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"  />
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            android:background="@drawable/res_shape"/>
 <RelativeLayout
+    android:id="@+id/relpass"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/email">
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
@@ -81,16 +95,11 @@
             android:inputType="phone"
             android:layout_marginTop="10dp"
             android:textColorHint="@color/black"
-            android:textColor="@color/black"/>
-
-
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:id="@+id/progress"
-            android:shadowColor="@color/black"/>
-
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relpass"
+            android:background="@drawable/res_shape"/>
 
         <Button
 
@@ -98,17 +107,26 @@
             android:layout_height="wrap_content"
             android:text="Create Account"
             android:id="@+id/createAccount"
-            android:backgroundTint="@color/whitegreen" />
+            android:backgroundTint="@color/whitegreen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phoneNum"
+            app:backgroundTint="@null"
+            android:background="@drawable/button_shape"/>
 
         <TextView
             android:id="@+id/haveAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" already have account? "
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/createAccount"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
 

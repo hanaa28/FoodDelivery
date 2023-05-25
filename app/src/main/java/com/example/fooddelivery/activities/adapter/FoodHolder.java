@@ -3,6 +3,7 @@ package com.example.fooddelivery.activities.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import com.example.fooddelivery.databinding.ResfoodListItemBinding;
 
 public class FoodHolder extends RecyclerView.ViewHolder {
     TextView foodName, description, price;
+    ImageButton addToCart;
     ResfoodListItemBinding binding;
     ImageView foodImage;
 
@@ -28,5 +30,6 @@ public class FoodHolder extends RecyclerView.ViewHolder {
         foodImage = binding.ImageFood;
         description = binding.desfood;
         price=binding.price;
+        addToCart = binding.addToCart;
     }
 }

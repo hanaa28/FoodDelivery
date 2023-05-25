@@ -68,7 +68,7 @@ public class RestaurantFragment extends Fragment {
         return binding.getRoot();
     }
     private void generateDataList(RestaurantResponse restaurantResponse) {
-        restaurantAdapter = new RestaurantAdapter(restaurantResponse, requireActivity().getApplication());
+        restaurantAdapter = new RestaurantAdapter(restaurantResponse, getContext());
         binding.recycler.setAdapter(restaurantAdapter);
         binding.recycler.setLayoutManager(new GridLayoutManager(getActivity(), 2));
     }

@@ -8,31 +8,55 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.fooddelivery.R;
+import com.example.fooddelivery.activities.SharedPrefs;
 import com.example.fooddelivery.activities.adapter.OrderAdapter;
+import com.example.fooddelivery.activities.interfaces.RestaurantInterface;
+import com.example.fooddelivery.activities.interfaces.UserInterface;
+import com.example.fooddelivery.activities.models.ErrorResponse;
 import com.example.fooddelivery.activities.models.Food;
+import com.example.fooddelivery.activities.models.FoodResponse;
+import com.example.fooddelivery.activities.models.LoginModel;
+import com.example.fooddelivery.activities.models.UserResponse;
+import com.example.fooddelivery.activities.utils.RetrofitClient;
 import com.example.fooddelivery.databinding.ActivityOrderBinding;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class orderActivity extends AppCompatActivity {
 ActivityOrderBinding binding;
 OrderAdapter orderAdapter;
 RecyclerView orderRV;
-    private ArrayList<Food> orderList = new ArrayList<>();
+    private ArrayList<FoodResponse> orderList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_order);
         orderRV= binding.orderRecycler;
-        orderList.add(new Food(R.drawable.logo, "Spacy fresh crab", "Waroenk kita", 35));
-        orderList.add(new Food(R.drawable.logo, "Spacy fresh crab", "Waroenk kita", 35));
-        orderList.add(new Food(R.drawable.logo ,"Spacy fresh crab", "Waroenk kita", 35));
+        RestaurantInterface res = RetrofitClient.getRetrofitInstance().create(RestaurantInterface.class);
+        SharedPrefs sharedPrefs = new SharedPrefs(getApplicationContext());
+        HashMap<String, String> foodList = sharedPrefs.getOrder();
+        for (Map.Entry<String, String> item :
+                foodList.entrySet()) {
+            System.out.println(item.getKey());
+        }
+//        orderList.add(new Food(R.drawable.logo, "Spacy fresh crab", "Waroenk kita", 35));
+//        orderList.add(new Food(R.drawable.logo, "Spacy fresh crab", "Waroenk kita", 35));
+//        orderList.add(new Food(R.drawable.logo ,"Spacy fresh crab", "Waroenk kita", 35));
 
         generateDataList(orderList);
 
@@ -44,11 +68,11 @@ RecyclerView orderRV;
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                Food deleteditem = orderList.get(viewHolder.getAdapterPosition());
+                FoodResponse deleteditem = orderList.get(viewHolder.getAdapterPosition());
                 int position = viewHolder.getAdapterPosition();
                 orderList.remove(viewHolder.getAdapterPosition());
                 orderAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
-                Snackbar.make(orderRV, deleteditem.getName(), Snackbar.LENGTH_LONG).setAction("Undo", new View.OnClickListener() {
+                Snackbar.make(orderRV, deleteditem.getData().get(0).getName(), Snackbar.LENGTH_LONG).setAction("Undo", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         orderList.add(position, deleteditem);
@@ -62,7 +86,7 @@ RecyclerView orderRV;
     }
 
 
-    private void generateDataList(ArrayList<Food> orderList) {
+    private void generateDataList(ArrayList<FoodResponse> orderList) {
 
         orderAdapter = new OrderAdapter( orderList,this);
         binding.orderRecycler.setAdapter(orderAdapter);

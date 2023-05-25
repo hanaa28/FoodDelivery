@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     public static String getToken() {
         return token;
     }
-//    Intent intent = new Intent(this, LoginActivity.class);
+   Intent intent;
         ActivityLoginBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
 
                           if(response.isSuccessful()) {
                             token = response.body().getToken();
-                            Intent intent=new Intent(LoginActivity.this,MainresActivity.class);
+                            intent=new Intent(LoginActivity.this,MainresActivity.class);
                             startActivity(intent);
                         }
                       else  {
