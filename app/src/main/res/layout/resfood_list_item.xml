@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="10dp"
-        android:background="@drawable/res_shape">
+        android:background="@drawable/res_shape"
+        android:layout_marginBottom="10dp">
 
         <ImageView
             android:id="@+id/ImageFood"
@@ -43,6 +44,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:textColor="@color/black"
 
                 />
 
@@ -54,7 +56,8 @@
                 android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Food_name" />
+                app:layout_constraintTop_toBottomOf="@id/Food_name"
+                android:textColor="@color/black"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -85,7 +88,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/price"
-                android:background="@color/white"
+                android:background="@drawable/shado"
                 android:scaleX="-1" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

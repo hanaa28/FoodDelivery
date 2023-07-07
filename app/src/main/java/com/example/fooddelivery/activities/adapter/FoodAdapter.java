@@ -41,12 +41,13 @@ public class FoodAdapter  extends RecyclerView.Adapter<FoodHolder> {
             System.out.println("**************************");
             System.out.println(foodResponse.getData().get(position).getId());
             SharedPrefs sharedPrefs = new SharedPrefs(context);
-            sharedPrefs.setOrder(String.valueOf(foodResponse.getData().get(position).getId()),"1", 1);
+            sharedPrefs.setOrder(String.valueOf(foodResponse.getData().get(position).getId()), 1);
         });
     }
 
     @Override
     public int getItemCount() {
+        System.out.println("fff"+foodResponse.getData().size());
         return foodResponse.getData().size();
     }
 }

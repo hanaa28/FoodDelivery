@@ -4,11 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -16,6 +18,7 @@ import com.example.fooddelivery.R;
 import com.example.fooddelivery.activities.interfaces.UserInterface;
 import com.example.fooddelivery.activities.models.ErrorResponse;
 import com.example.fooddelivery.activities.models.LoginModel;
+import com.example.fooddelivery.activities.models.RegisterErrorResponse;
 import com.example.fooddelivery.activities.models.User;
 import com.example.fooddelivery.activities.models.UserResponse;
 import com.example.fooddelivery.activities.utils.RetrofitClient;
@@ -44,10 +47,27 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+        binding.email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+        binding.password.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
         binding.signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(LoginActivity.this,SignActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
@@ -55,46 +75,50 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                UserInterface user = RetrofitClient.getRetrofitInstance().create(UserInterface.class);
-                LoginModel loginModel = new LoginModel(binding.email.getText().toString(), binding.password.getText().toString());
-                Call<UserResponse> call = user.loginUser(loginModel);
-                System.out.println("///////////"+call);
-                call.enqueue(new Callback<UserResponse>() {
+                    UserInterface user = RetrofitClient.getRetrofitInstance().create(UserInterface.class);
+                    LoginModel loginModel = new LoginModel(binding.email.getText().toString(), binding.password.getText().toString());
+                    Call<UserResponse> call = user.loginUser(loginModel);
+                    System.out.println("///////////" + call);
+                    call.enqueue(new Callback<UserResponse>() {
 
-                    @Override
-                    public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
-
-                          if(response.isSuccessful()) {
-                            token = response.body().getToken();
-                            intent=new Intent(LoginActivity.this,MainresActivity.class);
-                            startActivity(intent);
-                        }
-                      else  {
-//                                if (binding.email.getText().toString()==null && binding.password.getText().toString()==null){
-//                                    System.out.println("000000000000000000000000000000000000000000");
-//                                    Toast.makeText(LoginActivity.this,"sfaf",Toast.LENGTH_SHORT).show();
-//                                }
-//                                else {
+                        @Override
+                        public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                            if (response.body() == null) {
                                 Gson gson = new Gson();
-                                ErrorResponse errorResponse = gson.fromJson(response.errorBody().charStream(), ErrorResponse.class);
-                               Toast t= Toast.makeText(LoginActivity.this, errorResponse.getMassage(), Toast.LENGTH_SHORT);
-                               t.show();
+                                ErrorResponse ErrorResponse = gson.fromJson(response.errorBody().charStream(), ErrorResponse.class);
+
+                                if (ErrorResponse.getMassage() != null) {
+                                    Toast.makeText(LoginActivity.this, ErrorResponse.getMassage(), Toast.LENGTH_SHORT).show();
+                                }
+
+                                if (binding.email.getText().length()==0){
+                                    Toast.makeText(LoginActivity.this,"email is required",Toast.LENGTH_SHORT).show();
+                                }
+                                if (binding.password.getText().length()==0){
+                                    Toast.makeText(LoginActivity.this,"password is required",Toast.LENGTH_SHORT).show();
+
+                                }
+                                if (binding.password.getText().length()<6){
+                                    Toast.makeText(LoginActivity.this,"invalid password",Toast.LENGTH_SHORT).show();
+
+                                }
+
 
                             }
-                    //}
+                          else  {
+                                token = response.body().getToken();
+                                intent = new Intent(LoginActivity.this, MainresActivity.class);
+                                startActivity(intent);
+                            }
 
                         }
 
 
+                        @Override
+                        public void onFailure(@NonNull Call<UserResponse> call, @NonNull Throwable t) {
 
-
-
-
-                    @Override
-                    public void onFailure(@NonNull Call<UserResponse> call, @NonNull Throwable t) {
-
-                    }
-                });
+                        }
+                    });
 
 
             }
@@ -115,5 +139,9 @@ public class LoginActivity extends AppCompatActivity {
                 binding.password.setTransformationMethod(PasswordTransformationMethod.getInstance());
             }
         }
+    }
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

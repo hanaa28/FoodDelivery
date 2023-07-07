@@ -33,7 +33,7 @@ public class BioActivity extends AppCompatActivity {
         binding.next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sharedPref.setSignInInfo(binding.firstname.getText().toString(), binding.lastname.getText().toString(), binding.phonenumber.getText().toString());
+              //  sharedPref.setSignInInfo(binding.firstname.getText().toString(), binding.lastname.getText().toString(), binding.phonenumber.getText().toString());
                 Intent intent1=new Intent(BioActivity.this,photoActivity.class);
 
                 startActivity(intent1);

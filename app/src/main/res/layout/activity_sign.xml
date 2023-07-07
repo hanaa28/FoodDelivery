@@ -2,6 +2,8 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
     >
 
     <data>
@@ -17,15 +19,39 @@
 
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="300dp"
-            app:srcCompat="@drawable/signup"
+            android:layout_width="200dp"
+            android:layout_height="180dp"
+            app:srcCompat="@drawable/logo"
+            android:layout_marginTop="50dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:id="@+id/sign_image"
             android:background="@drawable/res_shape"/>
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_image"
+            android:text="FoodNinja"
+            android:textColor="@color/whitegreen"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/namesign"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/namesign"
+            android:text="Sign UP For Free "
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/txtsign"/>
         <EditText
             android:id="@+id/name"
             android:layout_width="match_parent"
@@ -38,7 +64,7 @@
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sign_image"
+            app:layout_constraintTop_toBottomOf="@id/txtsign"
             android:background="@drawable/res_shape"/>
 
         <EditText
@@ -73,7 +99,8 @@
         android:inputType="textPassword"
         android:layout_marginTop="10dp"
         android:textColorHint="@color/black"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:background="@drawable/res_shape"/>
     <ImageView
         android:id="@+id/show_pass_btn"
         android:layout_width="wrap_content"
@@ -112,6 +139,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/phoneNum"
             app:backgroundTint="@null"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
             android:background="@drawable/button_shape"/>
 
         <TextView

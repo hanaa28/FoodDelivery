@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="10dp"
-        android:background="@drawable/res_shape">
+        android:background="@drawable/res_shape"
+        android:layout_marginBottom="10dp">
 
         <ImageView
             android:id="@+id/orderFood"
@@ -42,6 +43,7 @@
                 android:text="name_food"
                 android:textSize="10sp"
                 android:textStyle="bold"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -52,6 +54,7 @@
                 android:layout_height="wrap_content"
                 android:text="name_res"
                 android:textSize="7sp"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toTopOf="@id/orderprice"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/Food_name"
@@ -95,6 +98,7 @@
                     android:layout_height="wrap_content"
                     android:text="1"
                     android:textSize="20dp"
+                    android:textColor="@color/black"
                     android:textStyle="bold"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"

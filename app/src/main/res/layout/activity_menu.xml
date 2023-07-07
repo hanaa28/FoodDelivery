@@ -10,7 +10,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activities.avtivities.MenuActivity">
+        tools:context=".activities.avtivities.MenuActivity"
+        android:background="@color/white">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,6 +34,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="36dp"
             android:layout_marginEnd="20dp"
+            android:paddingBottom="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

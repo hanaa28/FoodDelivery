@@ -9,5 +9,6 @@ public class Constants {
     public static String KEY_FOOD = "Food Name";
 
     public static String KEY_QUN = "qun";
+    public static String KEY_LOCATION = "location";
 
 }

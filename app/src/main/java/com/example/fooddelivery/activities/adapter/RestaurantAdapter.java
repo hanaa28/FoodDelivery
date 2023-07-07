@@ -16,6 +16,8 @@ import com.example.fooddelivery.activities.avtivities.MenuActivity;
 import com.example.fooddelivery.activities.models.RestaurantResponse;
 import com.squareup.picasso.Picasso;
 
+import java.util.List;
+
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantHolder> {
     RestaurantResponse restaurantResponse;
     Context context;
@@ -31,13 +33,14 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantHolder> {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View photoView = inflater.inflate(R.layout.food_list_item, parent, false);
+
         return new RestaurantHolder(photoView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RestaurantHolder holder, int position) {
         holder.restaurantName.setText(restaurantResponse.getData().get(position).getTags1());
-        Picasso.get().load(restaurantResponse.getData().get(position).getPic()).error(R.drawable.baseline_home_24).into(holder.restaurantImage);
+        Picasso.get().load(restaurantResponse.getData().get(position).getPic()).error(R.drawable.image).into(holder.restaurantImage);
         holder.restaurantImage.setOnClickListener(v -> onImageClick(v, restaurantResponse.getData().get(position).getId()));
     }
 
@@ -50,6 +53,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantHolder> {
 
     @Override
     public int getItemCount() {
+        System.out.println("kkk"+restaurantResponse.getData().size());
         return restaurantResponse.getData().size();
     }
 
@@ -57,4 +61,5 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantHolder> {
     public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
     }
+
 }

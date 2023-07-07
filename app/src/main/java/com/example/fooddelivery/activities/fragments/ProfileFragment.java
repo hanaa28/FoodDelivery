@@ -30,7 +30,7 @@ public class ProfileFragment extends Fragment {
 
     FragmentProfileBinding binding;
     private String namee;
-    private String photo;
+    private String photo,name ,phone,location;
      static final String Name="name";
      private SharedPrefs sharedPrefs;
 
@@ -65,7 +65,7 @@ public class ProfileFragment extends Fragment {
         View v = binding.getRoot();
 //        ImageView imageview = v.findViewById(R.id.viewImage1);
 //        CircleImageView imageView1 = v.findViewById(R.id.viewImage);
-        sharedPrefs = new SharedPrefs(requireActivity());
+        sharedPrefs = new SharedPrefs(getContext());
         photo = sharedPrefs.getPhoto().get(Constants.KEY_PHOTO);
         System.out.println("************************");
         System.out.println(photo);
@@ -74,6 +74,12 @@ public class ProfileFragment extends Fragment {
             Bitmap bitmap = BitmapFactory.decodeByteArray(b, 0, b.length);
             binding.viewImage.setImageDrawable(new BitmapDrawable(getResources(), bitmap));
         }
+        name=sharedPrefs.getSessionInfo().get(Constants.KEY_FIRSTNAME);
+        binding.name.setText(name);
+        phone=sharedPrefs.getSessionInfo().get(Constants.KEY_PHONE);
+        binding.phone.setText(phone);
+        location = sharedPrefs.getlocation().get(Constants.KEY_LOCATION);
+        binding.address.setText(location);
 
 
 //        image.put

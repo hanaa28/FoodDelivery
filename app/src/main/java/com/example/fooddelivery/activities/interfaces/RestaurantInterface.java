@@ -20,4 +20,8 @@ public interface RestaurantInterface {
 
     @GET("food/{id}")
     Call<FoodResponse> getOneFood(@Header("Authorization") String token, @Path("id") String id);
+
+    @GET("filter/food/{name}")
+    Call<FoodResponse> getFoodbyname(@Header("Authorization") String token, @Path("name") String name);
+
 }

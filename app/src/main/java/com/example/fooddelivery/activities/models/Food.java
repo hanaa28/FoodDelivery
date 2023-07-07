@@ -13,6 +13,7 @@ public class Food {
 	@SerializedName("updated_at")
 	private String updatedAt;
 
+	private int qun;
 	@SerializedName("price")
 	private String price;
 
@@ -78,5 +79,12 @@ public class Food {
 
 	public String getPic(){
 		return pic;
+	}
+
+	public int getQun(){
+		return qun;
+	}
+	public void setQun(int qun){
+		this.qun = qun;
 	}
 }

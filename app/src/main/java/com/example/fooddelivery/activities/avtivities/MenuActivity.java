@@ -13,6 +13,7 @@ import com.example.fooddelivery.R;
 import com.example.fooddelivery.activities.adapter.FoodAdapter;
 import com.example.fooddelivery.activities.adapter.RestaurantAdapter;
 import com.example.fooddelivery.activities.fragments.FoodFragment;
+import com.example.fooddelivery.activities.fragments.RestaurantFragment;
 import com.example.fooddelivery.activities.interfaces.RestaurantInterface;
 import com.example.fooddelivery.activities.interfaces.UserInterface;
 import com.example.fooddelivery.activities.models.Food;
@@ -43,7 +44,7 @@ public class MenuActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_menu);
         id = getIntent().getExtras().getInt("id");
         RestaurantInterface food = RetrofitClient.getRetrofitInstance().create(RestaurantInterface.class);
-        Call<FoodResponse> call = food.getFood("Bearer " + LoginActivity.getToken());
+        Call<FoodResponse> call = food.getFood("Bearer " + RestaurantFragment.Token());
         call.enqueue(new Callback<FoodResponse>() {
             @Override
             public void onResponse(Call<FoodResponse> call, Response<FoodResponse> response) {
@@ -54,6 +55,7 @@ public class MenuActivity extends AppCompatActivity {
                 for (int i = 0; i < res.size(); i++) {
                     if (res.get(i).getRestaurentId().equals(String.valueOf(id))) {
                        data.add(res.get(i));
+                        System.out.println("helllo"+res.get(i).getName());
                     }
                 }
                 response.body().setData(data);

@@ -13,37 +13,39 @@
         android:background="@color/whitegray">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler"
+            android:id="@+id/recycler1"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingBottom="50dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
+            android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/icephoto"
-            app:layout_constraintVertical_bias="0.08"
+
+
+
            />
 
         <TextView
             android:id="@+id/Fdes"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
 
             android:layout_marginTop="15dp"
             android:text=" Find Your  "
             android:textColor="@color/black"
             android:textSize="34dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.128"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="30dp"
+            app:layout_constraintBottom_toTopOf="@id/Sdes"
+           app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+        />
 
 
-        <EditText
+        <androidx.appcompat.widget.SearchView
             android:id="@+id/search"
             android:layout_width="250dp"
             android:layout_height="50dp"
@@ -54,27 +56,29 @@
             android:hint="What do you want to order?"
             android:textColorHint="@color/orange"
             android:textSize="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.211"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Sdes" />
+            app:layout_constraintEnd_toStartOf="@id/filter"
 
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Sdes"
+            app:layout_constraintBottom_toTopOf="@id/icephoto"/>
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginLeft="250dp"
-            app:layout_constraintStart_toStartOf="@id/search"
-            app:layout_constraintTop_toBottomOf="@+id/Sdes"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintStart_toEndOf="@id/search"
+         android:id="@+id/filter"
+            app:layout_constraintTop_toBottomOf="@id/Sdes"
             android:background="@drawable/shape2"
-            android:src="@drawable/baseline_manage_search_24"/>
+            android:src="@drawable/baseline_manage_search_24"
+          />
 
         <TextView
             android:id="@+id/Sdes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="0dp"
+
             android:layout_marginTop="4dp"
             android:text=" Favorite Food  "
             android:textColor="@color/black"
@@ -82,27 +86,26 @@
 
 
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.174"
-
+           android:layout_marginStart="30dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Fdes" />
+            app:layout_constraintTop_toBottomOf="@+id/Fdes"
+            app:layout_constraintBottom_toTopOf="@id/search"/>
 
         <ImageButton
             android:id="@+id/icephoto"
             android:layout_width="wrap_content"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/Sdes"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="30dp"
             android:background="@color/whitegray"
             android:contentDescription="t"
-            android:outlineAmbientShadowColor="@color/white"
-            android:outlineSpotShadowColor="@color/white"
+
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/search"
-            app:srcCompat="@drawable/icecream" />
+            app:srcCompat="@drawable/icecream"
+            app:layout_constraintBottom_toTopOf="@id/recycler"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

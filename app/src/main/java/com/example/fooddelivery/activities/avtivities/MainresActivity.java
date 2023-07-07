@@ -31,7 +31,6 @@ public class MainresActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(binding.recyclerView.getId(),
                                 new RestaurantFragment()).commit();
                         return true;
-//
                     case R.id.profile:
                         getSupportFragmentManager().beginTransaction().replace(binding.recyclerView.getId(),
                                 new ProfileFragment()).commit();

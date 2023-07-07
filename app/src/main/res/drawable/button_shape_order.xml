@@ -6,7 +6,7 @@
             >
 
             <solid
-                android:color="@color/white" />
+                android:color="@color/whitegreen" />
 
             <corners
                 android:radius="20dp" />
